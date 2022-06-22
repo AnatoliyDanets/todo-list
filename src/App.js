@@ -1,7 +1,6 @@
 import "./App.css";
 import Form from "./components/Form";
-import Users from "./components/Users";
-import ChangeForm from "./components/ChangeForm";
+import Todos from "./components/Todos";
 import { useState } from "react";
 
 const initTodos = [
@@ -77,14 +76,18 @@ function App() {
     setIdx(searchId.id);
     setShow((prev) => !prev);
   };
-  const visibleTodos = [...todos.filter((el) => el.complete === false)].length;
+  const completeTodos = [...todos.filter((el) => el.complete === false)].length;
   return (
     <div className="App">
-      {show ? <ChangeForm submit={changeTodo} /> : <Form submit={addTodo} />}
+      <Form
+        submit={show ? changeTodo : addTodo}
+        button={show ? " Change Todo" : "Add Todo"}
+        placeholder={show ? "change todo..." : "make todo..."}
+      />
       <h1>
-        {visibleTodos < 1 ? "Mission completed" : `Todo List:${visibleTodos}`}
+        {completeTodos < 1 ? "Mission completed" : `Todo List:${completeTodos}`}
       </h1>
-      <Users
+      <Todos
         users={todos}
         onClick={deleteTodo}
         onChange={handleChangeTodo}

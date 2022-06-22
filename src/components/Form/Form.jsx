@@ -1,7 +1,7 @@
 import { useState } from "react";
 import s from "./Form.module.css";
 
-export default function Form({ submit }) {
+export default function Form({ submit,button,placeholder }) {
   const [todo, setTodo] = useState("");
 
   const handleSubmit = (e) => {
@@ -26,10 +26,10 @@ export default function Form({ submit }) {
         name="todo"
         value={todo}
         type="text"
-        placeholder="make todo..."
+        placeholder={placeholder}
       />
       <button type="submit" className={s.form__btn}>
-        Add ToDo
+        {button}
       </button>
     </form>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import s from "./User.module.css";
+import s from "./Todo.module.css";
 
-export default function User({
+export default function Todo({
   id,
   text,
   complete,
@@ -66,7 +66,11 @@ export default function User({
             style={
               !complete
                 ? { backgroundColor: "#1884e3", color: "#fff" }
-                : { backgroundColor: "green", color: "#fff" }
+                : {
+                    backgroundColor: "green",
+                    color: "#fff",
+                    border: "1px solid green",
+                  }
             }
             className={s.users__btn}
             type="button"

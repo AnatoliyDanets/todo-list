@@ -1,11 +1,12 @@
-import s from "./Users.module.css";
-import User from "./User/User";
-export default function Users({ users, onClick, onChange, reset, onComplete }) {
+import Todo from "./Todo";
+import s from "./Todos.module.css";
+
+export default function Todos({ users, onClick, onChange, reset, onComplete }) {
   return (
     <ul className={s.users}>
       {users.map(({ id, todo, complete }) => {
         return (
-          <User
+          <Todo
             key={id}
             id={id}
             text={todo}
